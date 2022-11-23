@@ -1,0 +1,26 @@
+#ifndef __KERNEL_CUH__
+#define __KERNEL_CUH__
+
+
+#define G_INERTIA 0.5f
+
+#define Nb_Samples 1024
+#define Nb_Particules 81920
+#define Length_Modeling 3000
+#define TIME  0.1
+#define  MassFactor 10
+#define  PartDampingFactor 1
+
+
+typedef struct accel{
+	float accelx;
+	float accely;
+	float accelz;
+}accel_t;
+
+
+void accel1( int nblocks, int nthreads, int n, float *ParticulesTrieesCPUMass, float *ParticulesTrieesCPUPosX, float *ParticulesTrieesCPUPosY, float *ParticulesTrieesCPUPosZ,float *ParticulesTrieesCPUVelX,float *ParticulesTrieesCPUVelY, float *ParticulesTrieesCPUVelZ, accel_t *acceleration);
+	
+void accel2( int nblocks, int nthreads,int n, float *ParticulesTrieesCPUVelX, float *ParticulesTrieesCPUVelY, float *ParticulesTrieesCPUVelZ, float *ParticulesTrieesCPUPosX,float *ParticulesTrieesCPUPosY, float *ParticulesTrieesCPUPosZ, accel_t *acceleration);
+
+#endif
